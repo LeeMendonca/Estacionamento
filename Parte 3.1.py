@@ -1,5 +1,5 @@
 '''
-Programa de Pagamento de Estacionamento - Parte 3.2
+Programa de Pagamento de Estacionamento - Parte 3.1
 
 Tentativa 2 - Funcionou, mas o código ficou imenso, odiei.
 '''
