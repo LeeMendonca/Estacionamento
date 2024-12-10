@@ -1,7 +1,7 @@
 # Estacionamento
 *Programa de Pagamento de Estacionamento.*
 
-*Observação: O código completo está na parte final, as demais partes são apenas tentativas*
+*Observação: O código completo está na parte final, as demais partes são apenas tentativas.*
 
 Tempo de Estacionamento:
 
