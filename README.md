@@ -1,6 +1,5 @@
 # Estacionamento
-Programa de Pagamento de Estacionamento
-
+*Programa de Pagamento de Estacionamento*
 
 Tempo de Estacionamento:
 
@@ -17,7 +16,6 @@ Até 300 minutos: R$ 15,00
 Acima de 300 minutos: R$ 17,00
 
 Forma de Pagamento:
-Solicita ao usuário que indique a forma de pagamento:
 Se dinheiro: Informa que aceita apenas notas de R$ 5,00, R$ 10,00 e R$ 20,00.
 Se cartão: Pergunta se o pagamento será no crédito ou no débito.
 
