@@ -1,5 +1,5 @@
 '''
-Programa de Pagamento de Estacionamento - Parte 3.1
+Programa de Pagamento de Estacionamento - Parte 3.0
 
 Por fim, precisamos pedir para a pessoa indicar qual vai ser a forma de pagamento. 
 
