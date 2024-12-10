@@ -1,5 +1,5 @@
 '''
-Programa de Pagamento de Estacionamento - Parte 3.3
+Programa de Pagamento de Estacionamento - Parte 3.2
 
 Tentativa 3
 - Erro: usei if dentro do while para quando fosse digitado a forma correta.
