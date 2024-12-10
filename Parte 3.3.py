@@ -1,7 +1,7 @@
 '''
 Programa de Pagamento de Estacionamento - Parte 3.3
 
-Tentativa 4 - Ainda não deu certo, a versão final está no código "Final"
+Tentativa 4 - Ainda não deu certo.
 
 Obs1: tive que pesquisar um pouco sobre listas, para dimunir o tamanho do código, mas dava para fazer sem. 
 Encontrei esse site: https://blog.betrybe.com/python/python-list/#3
