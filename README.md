@@ -3,8 +3,6 @@
 
 Tempo de Estacionamento:
 
-- Se o tempo for menor ou igual a 15 minutos, informa que não é necessário pagar.
-
 - Até 15 minutos: R$ 00,00 (cortesia)
 
 - Até 60 minutos: R$ 09,00
