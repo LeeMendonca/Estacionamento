@@ -1,26 +1,17 @@
-# Estacionamento
-*Programa de Pagamento de Estacionamento.*
+# Ferreira's Park Shopping - Sistema de Pagamento de Estacionamento
 
-*Observação: O código completo está na parte final, as demais partes são apenas tentativas.*
+Projeto que simula um sistema de pagamento de estacionamento, com front-end em HTML/CSS/JavaScript e back-ends em Node.js e Python.
 
-Tempo de Estacionamento:
+---
 
-- Até 15 minutos: R$ 00,00 (cortesia)
+## Estrutura do Projeto
 
-- Até 60 minutos: R$ 09,00
+- `/frontend` – Código do front-end com HTML, CSS e JavaScript.  
+- `/backend-node` – Servidor Node.js para receber dados e salvar no banco MySQL.  
+- `/backend-python` – Código Python para lógica de pagamento (sem integração com banco).  
 
-- Até 180 minutos: R$ 12,00
+---
 
-- Até 300 minutos: R$ 15,00
+## Observação
 
-- Acima de 300 minutos: R$ 17,00
-
-Forma de Pagamento:
-
-- Se dinheiro: Informa que aceita apenas notas de R$ 5,00, R$ 10,00 e R$ 20,00.
-
-- Se cartão: Pergunta se o pagamento será no crédito ou no débito.
-
-Confirmação do Pagamento:
-
-- Exiba a mensagem: "Pagamento finalizado no [crédito/debito]" ou "Pagamento finalizado."
+Para garantir o funcionamento correto da comunicação entre front-end e back-end (via fetch), recomenda-se rodar o front-end em um servidor local, como a extensão **Live Server** no VS Code, evitando problemas com bloqueios de requisições no navegador.
