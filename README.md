@@ -27,5 +27,5 @@ Para rodar o servidor Node.js, siga os passos abaixo no terminal:
 ```bash
 cd backend-node
 npm init -y
-npm install
+npm install express mysql2 cors
 node server.js
