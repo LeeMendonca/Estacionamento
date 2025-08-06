@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ferreira's Park Shopping</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h2>Ferreira's Park Shopping</h2>
+
+  <div class="container">
+    <div class="formulario">
+      <label for="placa">Placa do carro:</label>
+      <input type="text" id="placa" maxlength="7" placeholder="Ex: ABC1D23" />
+
+      <label for="tempo">Tempo de permanência (minutos):</label>
+      <input type="number" id="tempo" min="0" placeholder="Ex: 60" />
+
+      <label>Forma de pagamento:</label>
+      <select id="formaPagamento" class="placeholder">
+        <option value="" disabled selected>Selecione</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="cartao">Cartão</option>
+      </select>
+
+      <div id="opcaoCartao" style="display:none;">
+        <label>Crédito ou débito?</label>
+        <select id="tipoCartao" class="placeholder">
+          <option value="" disabled selected>Selecione</option>
+          <option value="credito">Crédito</option>
+          <option value="debito">Débito</option>
+        </select>
+      </div>
+
+      <button onclick="calcularPagamento()">Calcular e pagar</button>
+
+      <div class="resultado" id="resultado" style="display:none;"></div>
+    </div>
+  </div>
+
+  <script>
+    const formaPagamento = document.getElementById('formaPagamento');
+    const opcaoCartao = document.getElementById('opcaoCartao');
+    const tipoCartao = document.getElementById('tipoCartao');
+    const resultado = document.getElementById('resultado');
+
+    formaPagamento.addEventListener('change', () => {
+      if (formaPagamento.value === 'cartao') {
+        opcaoCartao.style.display = 'block';
+      } else {
+        opcaoCartao.style.display = 'none';
+        tipoCartao.value = '';
+      }
+    });
+
+    function validarPlaca(placa) {
+      const regex = /^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/i;
+      return regex.test(placa.trim());
+    }
+
+    function calcularValor(minutos) {
+      if (minutos <= 15) return 0.00;
+      if (minutos <= 60) return 9.00;
+      if (minutos <= 180) return 12.00;
+      if (minutos <= 300) return 15.00;
+      return 17.00;
+    }
+
+    function calcularPagamento() {
+      resultado.style.display = 'none';
+      resultado.innerHTML = '';
+
+      let placa = document.getElementById('placa').value.toUpperCase();
+      let minutos = parseInt(document.getElementById('tempo').value);
+
+      if (!placa || !validarPlaca(placa)) {
+        resultado.innerHTML = '<span style="color:red;">Digite uma placa válida (ex: ABC1D23).</span>';
+        resultado.style.display = 'block';
+        return;
+      }
+
+      if (isNaN(minutos) || minutos < 0) {
+        resultado.innerHTML = '<span style="color:red;">Digite um tempo válido (número inteiro e >= 0).</span>';
+        resultado.style.display = 'block';
+        return;
+      }
+
+      let valor = calcularValor(minutos);
+
+      if (valor === 0) {
+        resultado.innerHTML = `Placa: <b>${placa}</b><br>Estacionamento gratuito! Você permaneceu até 15 minutos.`;
+        resultado.style.display = 'block';
+        return;
+      }
+
+      let fp = formaPagamento.value;
+      if (!fp) {
+        resultado.innerHTML = '<span style="color:red;">Selecione a forma de pagamento.</span>';
+        resultado.style.display = 'block';
+        return;
+      }
+
+      if (fp === 'cartao' && !tipoCartao.value) {
+        resultado.innerHTML = '<span style="color:red;">Selecione crédito ou débito para cartão.</span>';
+        resultado.style.display = 'block';
+        return;
+      }
+
+      let mensagemPagamento = '';
+
+      if (fp === 'dinheiro') {
+        mensagemPagamento = 'Pagamento finalizado em dinheiro.<br>Aceitamos apenas notas de R$5,00, R$10,00 e R$20,00.';
+      } else {
+        mensagemPagamento = tipoCartao.value === 'credito' ? 'Pagamento finalizado no crédito.' : 'Pagamento finalizado no débito.';
+      }
+
+      fetch('http://localhost:3000/pagar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          placa: placa,
+          tempo: minutos,
+          valor: valor,
+          forma: fp,
+          tipo: fp === 'cartao' ? tipoCartao.value : null
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.erro){
+          resultado.innerHTML = `<span style="color:red;">${data.erro}</span>`;
+        } else {
+          resultado.innerHTML = `<b>Placa:</b> ${placa}<br><b>Valor a pagar:</b> R$${valor.toFixed(2)}<br><br>${mensagemPagamento}<br><br>Pagamento confirmado.<br>Obrigado por usar Ferreira's Park Shopping!`;
+        }
+        resultado.style.display = 'block';
+      })
+      .catch(() => {
+        resultado.innerHTML = `<span style="color:red;">Erro ao conectar ao servidor.</span>`;
+        resultado.style.display = 'block';
+      });
+    }
+  </script>
+
+</body>
+</html>
