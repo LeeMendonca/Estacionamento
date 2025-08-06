@@ -8,10 +8,8 @@ Projeto desenvolvido durante as férias, por iniciativa própria, para praticar 
 
 - `/frontend` – Código do front-end com HTML, CSS e JavaScript.  
 - `/backend-node` – Servidor Node.js para receber dados e salvar no banco MySQL.
-
---
 - `/backend-python` – Projeto separado em Python para lógica de pagamento, sem integração com o front-end ou banco de dados.
-> Comecei desenvolvendo em python e depois reescrevi o projeto para rodar um página web.
+> Comecei desenvolvendo em Python, depois reescrevi o código para rodar em uma página web. O projeto agora é **independente do código Python** original.
 
 ---
 
