@@ -1,6 +1,6 @@
 # Ferreira's Park Shopping - Sistema de Pagamento de Estacionamento
 
-Projeto que simula um sistema de pagamento de estacionamento, com front-end em HTML/CSS/JavaScript e back-ends em Node.js e Python.
+Projeto desenvolvido durante as férias, por iniciativa própria, para praticar e aprofundar conhecimentos em desenvolvimento web e integração com banco de dados. Simula um sistema de pagamento de estacionamento, com front-end em HTML/CSS/JavaScript e back-ends em Node.js e Python.
 
 ---
 
