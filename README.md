@@ -14,4 +14,18 @@ Projeto desenvolvido durante as férias, por iniciativa própria, para praticar 
 
 ## ⚠️ Observação
 
-Para garantir o funcionamento correto da comunicação entre front-end e back-end (via fetch), recomenda-se rodar o front-end em um servidor local, como a extensão **Live Server** no VS Code, evitando problemas com bloqueios de requisições no navegador.
+Para garantir o funcionamento correto da comunicação entre front-end e back-end (via `fetch`), recomenda-se rodar o front-end em um servidor local, como a extensão **Live Server** no VS Code, evitando problemas com bloqueios de requisições no navegador.
+
+---
+
+## 🧶 Instalação
+
+Os pacotes e a pasta `node_modules` **não estão incluídos no repositório**, pois são gerados automaticamente ao instalar as dependências do projeto Node.js.
+
+Para rodar o servidor Node.js, siga os passos abaixo no terminal:
+
+```bash
+cd backend-node
+npm init -y
+npm install
+node server.js
